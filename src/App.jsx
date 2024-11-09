@@ -4,14 +4,14 @@ import TabContent from "./components/Content/TabContent";
 
 function App() {
     return (
-    <>
-        <Header/>
-        <main>
-            <CoreConcepts>Core concept</CoreConcepts>
-            <TabContent>Example</TabContent>
-        </main>
-    </>
-  );
+        <>
+            <Header/>
+            <main>
+                <CoreConcepts>Core concept</CoreConcepts>
+                <TabContent>Example</TabContent>
+            </main>
+        </>
+    );
 }
 
 export default App;

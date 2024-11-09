@@ -1,5 +1,5 @@
 export class Common {
-    static getClassName(className, condition) {
+    static getClassNameIfConditionIsTrue(className, condition) {
         if(condition) {
             return className;
         }

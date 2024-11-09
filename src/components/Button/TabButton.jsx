@@ -1,12 +1,13 @@
 import {Common} from "../../common/Common";
 
-export default function TabButton({onSelect, isSelected, ...props}) {
+export default function TabButton({isSelected, ...props}) {
     const {title} = props.children;
 
     return (
         <li>
-            <button className={Common.getClassName('active', isSelected)}
-                    onClick={onSelect}>{title}</button>
+            <button className={Common.getClassNameIfConditionIsTrue('active', isSelected)}
+                    {...props}>{title}
+            </button>
         </li>
     );
 }

@@ -1,6 +1,8 @@
 import {EXAMPLES} from "../../data";
 import TabButton from "../Button/TabButton";
 import {useState} from "react";
+import Section from "../Section.jsx";
+import Tabs from "../Tabs.jsx";
 
 export default function TabContent(props) {
 
@@ -19,8 +21,8 @@ export default function TabContent(props) {
                 <h3>{EXAMPLES[selectedTopic].title}</h3>
                 <p>{EXAMPLES[selectedTopic].description}</p>
                 <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
+                    <code>{EXAMPLES[selectedTopic].code}</code>
+                </pre>
             </div>;
         }
 
@@ -31,17 +33,18 @@ export default function TabContent(props) {
         return <p>Select a topic to see an example</p>;
     }
 
-    return <section id="examples">
-        <h2>{tagTitle}</h2>
-        <menu>
-            {Object.keys(EXAMPLES).map((value, index) => (
-                <TabButton key={index}
-                           onSelect={() => handleSelect(value)}
-                           isSelected={selectedTopic === value.toString()}>
-                    {EXAMPLES[value]}
-                </TabButton>
-            ))}
-        </menu>
-        {getTabContent(selectedTopic)}
-    </section>
+    return <Section title={tagTitle} id="examples">
+        <Tabs
+            buttons={Object.keys(EXAMPLES).map((value, index) => (
+                <>
+                    <TabButton key={index}
+                               onClick={() => handleSelect(value)}
+                               isSelected={selectedTopic === value.toString()}>
+                        {EXAMPLES[value]}
+                    </TabButton>
+                </>
+            ))}>
+            {getTabContent(selectedTopic)}
+        </Tabs>
+    </Section>
 }
